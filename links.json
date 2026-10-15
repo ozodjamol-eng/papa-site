@@ -9,17 +9,20 @@
     {
       "type": "instagram",
       "label": "Instagram",
-      "url": "https://www.instagram.com/paparazzi.uz/"
+      "url": "https://www.instagram.com/paparazzi.uz/",
+      "handle": "@paparazzi.uz"
     },
     {
       "type": "youtube",
       "label": "YouTube",
-      "url": "https://www.youtube.com/@PaparazziUZ"
+      "url": "https://www.youtube.com/@PaparazziUZ",
+      "handle": "@PaparazziUZ"
     },
     {
       "type": "tiktok",
       "label": "TikTok",
-      "url": ""
+      "url": "",
+      "handle": ""
     }
   ]
 }
