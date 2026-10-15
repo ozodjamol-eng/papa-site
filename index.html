@@ -13,7 +13,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ff5a1f">
-<meta name="color-scheme" content="light only">
+<meta name="color-scheme" content="light dark">
 <link rel="icon" href="icon.png">
 <style>
   :root{--brand:#ff5a1f;--brand2:#ff8a3d;--bg:#fff7f0;--soft:#fff1e6;--card:#fff;--text:#1d1714;--muted:#6f625a;--line:rgba(255,120,60,.14);
@@ -86,14 +86,32 @@
   .social .ig i{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285aeb 90%)}
   .social .youtube i{background:#ff0000} .social .tiktok i{background:#111} .social .telegram i{background:var(--tg)} .social .facebook i{background:#1877f2}
   .social svg{width:24px;height:24px;fill:currentColor}
+
+  .theme{position:absolute;left:14px;top:14px;z-index:2;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;cursor:pointer;
+         border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.18);color:#fff;font-size:17px;
+         -webkit-backdrop-filter:blur(14px) saturate(160%);backdrop-filter:blur(14px) saturate(160%);transition:transform .12s}
+  .theme:active{transform:scale(.92)}
+  html[data-theme=dark]{--bg:#110e0c;--soft:#2a1f18;--card:#1c1815;--text:#f6f0ea;--muted:#b4a79c;--line:rgba(255,140,80,.16)}
+  html[data-theme=dark] .hero{background:radial-gradient(120% 90% at 85% 0%,#ff8f45 0%,rgba(255,143,69,0) 55%),linear-gradient(165deg,#f0631f 0%,#d9480f 60%,#b8380a 100%)}
+  html[data-theme=dark] .tabs{background:rgba(32,27,24,.72);border-color:rgba(255,255,255,.08);box-shadow:0 12px 32px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06)}
+  html[data-theme=dark] .tabs button{color:var(--text)}
+  html[data-theme=dark] .card{box-shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35)}
+  html[data-theme=dark] .desc,html[data-theme=dark] .adcard li{background:rgba(255,140,80,.07);border-color:rgba(255,140,80,.12)}
+  html[data-theme=dark] .cava{background:linear-gradient(180deg,#2a221d,#1f1916)}
+  html[data-theme=dark] .pill{background:rgba(255,110,50,.14);color:#ff9a5c}
+  html[data-theme=dark] .b2{color:#6cc7f5;background:rgba(42,171,238,.14);border-color:rgba(42,171,238,.28)}
+  html[data-theme=dark] .social a{background:rgba(32,27,24,.9);box-shadow:none}
+  html[data-theme=dark] footer b{color:#ff9a5c}
   [hidden]{display:none!important}
   footer{text-align:center;color:var(--muted);font-size:13px;margin-top:22px;line-height:1.9}
   footer b{color:var(--brand)}
   @media (prefers-reduced-motion: reduce){*{transition:none!important}}
 </style>
+<script>try{if(localStorage.getItem("papa_theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}</script>
 </head>
 <body>
 <section class="hero">
+  <button class="theme" id="theme" aria-label="Тема">🌙</button>
   <div class="lang"><button data-l="cyr" class="on">Кир</button><button data-l="lat">Lot</button></div>
   <img class="ava" src="avatar.jpg" onerror="this.onerror=null;this.src='icon.png'" alt="PAPA">
   <h1>PAPA</h1>
@@ -191,6 +209,12 @@
     if(navigator.share){navigator.share({url:u}).catch(function(){});}
     else if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){b.lastChild.textContent=T[lang].copied})}
   }});
+  var th=document.getElementById("theme");
+  function setTheme(t){document.documentElement.dataset.theme=t;th.textContent=t==="dark"?"☀️":"🌙";
+    var m=document.querySelector('meta[name=theme-color]');if(m)m.content=t==="dark"?"#b8380a":"#ff5a1f";
+    try{localStorage.setItem("papa_theme",t)}catch(e){}}
+  setTheme(document.documentElement.dataset.theme==="dark"?"dark":"light");
+  th.onclick=function(){setTheme(document.documentElement.dataset.theme==="dark"?"light":"dark")};
   apply(lang);
   var safe=function(u){return typeof u==="string"&&/^https:\/\//.test(u)};
   var s=(new URLSearchParams(location.search).get("s")||"").replace(/[^a-z0-9_-]/gi,"").slice(0,64);
