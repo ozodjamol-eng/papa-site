@@ -1,1 +1,9 @@
-{"default": {"paparazzi": "https://t.me/ozodjamoll", "xojaobod": "https://t.me/xojaobodcity24"}}
+{
+  "default": {"paparazzi": "https://t.me/ozodjamoll", "xojaobod": "https://t.me/xojaobodcity24", "both": ""},
+  "ads": "",
+  "social": [
+    {"type": "instagram", "label": "Instagram", "url": "https://www.instagram.com/paparazzi.uz/"},
+    {"type": "youtube", "label": "YouTube", "url": ""},
+    {"type": "tiktok", "label": "TikTok", "url": ""}
+  ]
+}
