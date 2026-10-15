@@ -12,86 +12,134 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0e0c12">
+<meta name="theme-color" content="#ff5a1f">
 <link rel="icon" href="icon.png">
 <style>
-  :root{--bg:#0e0c12;--card:#18151e;--card2:#1f1b27;--line:#2c2735;--text:#f5f2f8;--muted:#a79fb2;
-        --gold:#f6c445;--orange:#ff8a3d;--tg:#2aabee}
+  :root{--brand:#ff5a1f;--brand2:#ff7a2f;--bg:#fff6ee;--soft:#ffeedd;--card:#fff;--text:#1d1714;--muted:#6f625a;--line:#f5e3d3;--tg:#2aabee}
   *{box-sizing:border-box;margin:0;padding:0}
   html{background:var(--bg)}
-  body{background:radial-gradient(110% 55% at 50% -8%,#3b2546 0%,rgba(14,12,18,0) 62%),var(--bg);color:var(--text);
-       font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;min-height:100vh;
-       -webkit-font-smoothing:antialiased}
-  main{max-width:480px;margin:0 auto;padding:28px 16px calc(36px + env(safe-area-inset-bottom))}
-  a{color:inherit}
-  header{text-align:center;margin-bottom:20px}
-  .ava{width:96px;height:96px;border-radius:50%;margin:0 auto 12px;display:block;object-fit:cover;
-       box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--gold),0 10px 40px rgba(246,196,69,.25)}
-  h1{font-size:25px;letter-spacing:.3px}
-  h1 b{background:linear-gradient(90deg,var(--gold),var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .lead{color:var(--muted);margin:6px auto 0;font-size:15px;max-width:360px}
-  .btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:15px 14px;border-radius:15px;
-       font-weight:700;font-size:16px;text-decoration:none;color:#fff;background:var(--tg);border:0;
-       transition:transform .1s,filter .15s}
-  .btn:active{transform:scale(.98)} .btn:hover{filter:brightness(1.07)}
-  .btn svg{width:20px;height:20px;fill:currentColor;flex:none}
-  .both{background:linear-gradient(90deg,var(--gold),var(--orange));color:#1b1206;font-size:17px;padding:17px 14px;
-        box-shadow:0 8px 28px rgba(255,138,61,.28);margin-bottom:6px}
-  .hint{text-align:center;color:var(--muted);font-size:13px;margin-bottom:18px}
-  .card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:20px;padding:16px;margin-bottom:12px}
-  .row{display:flex;gap:12px;align-items:center;margin-bottom:10px}
-  .cava{width:54px;height:54px;border-radius:50%;flex:none;object-fit:cover;display:grid;place-items:center;
-        font-size:26px;background:#2a2433;border:1px solid var(--line)}
-  .card h2{font-size:18px;line-height:1.2}
-  .tag{display:inline-block;margin-top:4px;font-size:12px;font-weight:600;color:#1b1206;background:var(--gold);border-radius:99px;padding:2px 9px}
-  .card p{color:var(--muted);margin:0 0 12px;font-size:15px}
-  .ads{background:transparent;border:1.5px solid var(--gold);color:var(--gold);margin:6px 0 18px}
-  .social{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-  .social a{display:flex;align-items:center;gap:7px;text-decoration:none;color:var(--text);font-size:14px;font-weight:600;
-            background:var(--card);border:1px solid var(--line);border-radius:99px;padding:9px 14px}
-  .social svg{width:18px;height:18px;fill:currentColor}
+  body{background:var(--bg);color:var(--text);font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+       -webkit-font-smoothing:antialiased;min-height:100vh}
+  a{color:inherit;text-decoration:none}
+  .hero{position:relative;overflow:hidden;background:linear-gradient(160deg,var(--brand2),var(--brand));color:#fff;
+        padding:22px 16px 74px;border-radius:0 0 34px 34px;text-align:center}
+  .hero:before,.hero:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.09)}
+  .hero:before{width:300px;height:300px;right:-120px;top:-110px}
+  .hero:after{width:220px;height:220px;left:-110px;bottom:-120px}
+  .lang{position:absolute;right:14px;top:14px;display:flex;background:rgba(255,255,255,.22);border-radius:99px;padding:3px;z-index:2}
+  .lang button{border:0;background:transparent;color:#fff;font-weight:700;font-size:13px;padding:6px 12px;border-radius:99px;cursor:pointer}
+  .lang button.on{background:#fff;color:var(--brand)}
+  .ava{position:relative;z-index:1;width:92px;height:92px;border-radius:50%;object-fit:cover;border:4px solid #fff;
+       box-shadow:0 8px 24px rgba(120,30,0,.25);margin:26px auto 10px;display:block;background:#fff}
+  .hero h1{position:relative;z-index:1;font-size:34px;font-weight:800;letter-spacing:.5px}
+  .hero p{position:relative;z-index:1;font-size:16px;opacity:.95;max-width:340px;margin:4px auto 0}
+  main{max-width:480px;margin:-50px auto 0;padding:0 16px calc(28px + env(safe-area-inset-bottom));position:relative;z-index:3}
+  .tabs{display:flex;background:#fff;border-radius:22px;padding:6px;box-shadow:0 10px 30px rgba(255,90,31,.12);margin-bottom:16px}
+  .tabs button{flex:1;border:0;background:transparent;font-weight:700;font-size:16px;padding:13px;border-radius:17px;color:var(--text);cursor:pointer}
+  .tabs button.on{background:var(--brand);color:#fff;box-shadow:0 6px 16px rgba(255,90,31,.35)}
+  .both{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:var(--text);color:#fff;
+        font-weight:800;font-size:17px;padding:17px;border-radius:20px;margin-bottom:6px}
+  .hint{text-align:center;color:var(--muted);font-size:13px;margin-bottom:14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:18px;margin-bottom:14px}
+  .head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .head h2{font-size:21px;line-height:1.2}
+  .pill{flex:none;font-size:13px;font-weight:700;color:var(--brand);background:var(--soft);border-radius:99px;padding:6px 12px}
+  .cava{width:46px;height:46px;border-radius:50%;object-fit:cover;flex:none;display:grid;place-items:center;background:var(--soft);font-size:22px}
+  .who{display:flex;gap:12px;align-items:center}
+  .desc{background:var(--soft);border-radius:16px;padding:12px 14px;margin:14px 0;color:var(--text);font-size:15px}
+  .btns{display:grid;grid-template-columns:1.25fr 1fr;gap:10px}
+  .b1,.b2{display:flex;align-items:center;justify-content:center;gap:8px;padding:15px 10px;border-radius:18px;font-weight:800;font-size:16px;border:0;cursor:pointer;font-family:inherit}
+  .b1{background:var(--brand);color:#fff}
+  .b2{background:var(--soft);color:var(--text)}
+  .b1 svg,.b2 svg{width:20px;height:20px;fill:currentColor;flex:none}
+  .b1:active,.b2:active,.both:active{transform:scale(.98)}
+  .adcard{border:1.5px solid var(--brand)}
+  .adcard ul{list-style:none;margin:12px 0 14px;display:grid;gap:8px}
+  .adcard li{background:var(--soft);border-radius:14px;padding:10px 12px;font-size:15px}
+  h3{text-align:center;font-size:19px;margin:22px 0 12px}
+  .social{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:10px}
+  .social a{background:#fff;border:1px solid var(--line);border-radius:20px;padding:14px 4px;text-align:center;font-size:13px;font-weight:600}
+  .social i{display:grid;place-items:center;width:46px;height:46px;margin:0 auto 6px;border-radius:14px;background:var(--soft);color:var(--brand)}
+  .social svg{width:24px;height:24px;fill:currentColor}
   [hidden]{display:none!important}
-  footer{text-align:center;color:#6f6779;font-size:12px;margin-top:26px;line-height:1.8}
-  footer a{color:#6f6779}
+  footer{text-align:center;color:var(--muted);font-size:13px;margin-top:22px;line-height:1.9}
+  footer b{color:var(--brand)}
 </style>
 </head>
 <body>
+<section class="hero">
+  <div class="lang"><button data-l="cyr" class="on">Кир</button><button data-l="lat">Lot</button></div>
+  <img class="ava" src="avatar.jpg" onerror="this.onerror=null;this.src='icon.png'" alt="PAPA">
+  <h1>PAPA</h1>
+  <p data-t="lead"></p>
+</section>
+
 <main>
-  <header>
-    <img class="ava" id="ava" src="avatar.jpg" onerror="this.onerror=null;this.src='icon.png'" alt="PAPA">
-    <h1><b>PAPA</b> • Озод Жамол</h1>
-    <p class="lead">Ўзбекистондаги энг долзарб янгиликлар, фойдали ва қизиқарли видеолар 🔥</p>
-  </header>
+  <div class="tabs"><button class="on" data-tab="ch" data-t="tab1"></button><button data-tab="ad" data-t="tab2"></button></div>
 
-  <a class="btn both" id="both" hidden href="#">⚡ Иккала каналга бирданига қўшилиш</a>
-  <p class="hint" id="bothHint" hidden>Бир босишда — иккала канал ҳам сизда</p>
+  <div id="ch">
+    <a class="both" id="both" hidden href="#">⚡ <span data-t="both"></span></a>
+    <p class="hint" id="bothHint" hidden data-t="hint"></p>
 
-  <section class="card">
-    <div class="row">
-      <img class="cava" src="xojaobod.jpg" onerror="this.outerHTML='<div class=cava>📍</div>'" alt="">
-      <div><h2>Хўжаобод Сити 24</h2><span class="tag">Ҳар куни</span></div>
-    </div>
-    <p>Энг долзарб янгиликлар, фойдали видеолар, ҳажвия, соғлиқ учун маслаҳатлар, жонли мусиқа ва премьералар — фойдали ва қизиқарли 😉</p>
-    <a class="btn" id="xojaobod" href="https://t.me/xojaobodcity24"><svg viewBox="0 0 24 24"><path d="M9.8 15.3 9.4 20c.6 0 .9-.3 1.2-.6l2.9-2.7 6 4.4c1.1.6 1.9.3 2.2-1L24 3.6c.4-1.6-.6-2.3-1.6-1.9L1 10.1c-1.5.6-1.5 1.5-.3 1.9l5.5 1.7L19 5.6c.6-.4 1.1-.2.7.2z"/></svg>Қўшилиш</a>
-  </section>
+    <section class="card">
+      <div class="head">
+        <div class="who"><img class="cava" src="xojaobod.jpg" onerror="this.outerHTML='<div class=cava>📍</div>'" alt=""><h2 data-t="x_t"></h2></div>
+        <span class="pill" data-t="x_tag"></span>
+      </div>
+      <div class="desc" data-t="x_d"></div>
+      <div class="btns">
+        <a class="b1" id="xojaobod" href="https://t.me/xojaobodcity24"><svg viewBox="0 0 24 24"><path d="M9.8 15.3 9.4 20c.6 0 .9-.3 1.2-.6l2.9-2.7 6 4.4c1.1.6 1.9.3 2.2-1L24 3.6c.4-1.6-.6-2.3-1.6-1.9L1 10.1c-1.5.6-1.5 1.5-.3 1.9l5.5 1.7L19 5.6c.6-.4 1.1-.2.7.2z"/></svg><span data-t="join"></span></a>
+        <button class="b2" data-share="xojaobod"><svg viewBox="0 0 24 24"><path d="M18 16a3 3 0 0 0-2.4 1.2l-6.7-3.4a3 3 0 0 0 0-1.6l6.7-3.4A3 3 0 1 0 15 7l-6.7 3.4a3 3 0 1 0 0 3.2L15 17a3 3 0 1 0 3-1z"/></svg><span data-t="share"></span></button>
+      </div>
+    </section>
 
-  <section class="card">
-    <div class="row">
-      <img class="cava" src="paparazzi.jpg" onerror="this.outerHTML='<div class=cava>⭐</div>'" alt="">
-      <div><h2>PaparazziUZ</h2><span class="tag">Шоу-бизнес ва мусиқа</span></div>
-    </div>
-    <p>Юлдузлар ҳаёти, шоу-бизнес янгиликлари, янги қўшиқлар, клиплар ва премьералар 🎵</p>
-    <a class="btn" id="paparazzi" href="https://t.me/ozodjamoll"><svg viewBox="0 0 24 24"><path d="M9.8 15.3 9.4 20c.6 0 .9-.3 1.2-.6l2.9-2.7 6 4.4c1.1.6 1.9.3 2.2-1L24 3.6c.4-1.6-.6-2.3-1.6-1.9L1 10.1c-1.5.6-1.5 1.5-.3 1.9l5.5 1.7L19 5.6c.6-.4 1.1-.2.7.2z"/></svg>Қўшилиш</a>
-  </section>
+    <section class="card">
+      <div class="head">
+        <div class="who"><img class="cava" src="paparazzi.jpg" onerror="this.outerHTML='<div class=cava>⭐</div>'" alt=""><h2>PaparazziUZ</h2></div>
+        <span class="pill" data-t="p_tag"></span>
+      </div>
+      <div class="desc" data-t="p_d"></div>
+      <div class="btns">
+        <a class="b1" id="paparazzi" href="https://t.me/ozodjamoll"><svg viewBox="0 0 24 24"><path d="M9.8 15.3 9.4 20c.6 0 .9-.3 1.2-.6l2.9-2.7 6 4.4c1.1.6 1.9.3 2.2-1L24 3.6c.4-1.6-.6-2.3-1.6-1.9L1 10.1c-1.5.6-1.5 1.5-.3 1.9l5.5 1.7L19 5.6c.6-.4 1.1-.2.7.2z"/></svg><span data-t="join"></span></a>
+        <button class="b2" data-share="paparazzi"><svg viewBox="0 0 24 24"><path d="M18 16a3 3 0 0 0-2.4 1.2l-6.7-3.4a3 3 0 0 0 0-1.6l6.7-3.4A3 3 0 1 0 15 7l-6.7 3.4a3 3 0 1 0 0 3.2L15 17a3 3 0 1 0 3-1z"/></svg><span data-t="share"></span></button>
+      </div>
+    </section>
+  </div>
 
-  <a class="btn ads" id="ads" hidden href="#">📩 Реклама бўйича боғланиш</a>
+  <div id="ad" hidden>
+    <section class="card adcard">
+      <div class="head"><h2 data-t="ad_t"></h2><span class="pill">📩</span></div>
+      <ul>
+        <li data-t="ad_1"></li><li data-t="ad_2"></li><li data-t="ad_3"></li>
+      </ul>
+      <a class="b1" id="ads" href="https://www.instagram.com/paparazzi.uz/"><span data-t="ad_b"></span></a>
+    </section>
+  </div>
 
+  <h3 data-t="soc"></h3>
   <nav class="social" id="social"></nav>
 
-  <footer>© PAPA<br><a href="privacy.html">Махфийлик сиёсати</a> · <a href="data-deletion.html">Маълумотларни ўчириш</a></footer>
+  <footer>© <b>PAPA</b><br><a href="privacy.html" data-t="priv"></a> · <a href="data-deletion.html" data-t="del"></a></footer>
 </main>
+
 <script>
 (function(){
+  var T={
+    cyr:{lead:"Ўзбекистондаги энг долзарб янгиликлар, фойдали ва қизиқарли видеолар 🔥",tab1:"Каналлар",tab2:"Реклама",
+      both:"Иккала каналга бирданига қўшилиш",hint:"Бир босишда — иккала канал ҳам сизда",
+      x_t:"Хўжаобод Сити 24",x_tag:"Ҳар куни",x_d:"Энг долзарб янгиликлар, фойдали видеолар, ҳажвия, соғлиқ учун маслаҳатлар, жонли мусиқа ва премьералар 😉",
+      p_tag:"Шоу-бизнес",p_d:"Юлдузлар ҳаёти, шоу-бизнес янгиликлари, янги қўшиқлар, клиплар ва премьералар 🎵",
+      join:"Қўшилиш",share:"Улашиш",ad_t:"Реклама жойлаштириш",ad_1:"📍 Хўжаобод Сити 24 ва PaparazziUZ каналларида",
+      ad_2:"📸 Instagram 238 минг • ▶️ YouTube 575 минг",ad_3:"🎬 Реклама видео ва постларни ўзимиз тайёрлаймиз",ad_b:"Боғланиш",
+      soc:"Ижтимоий тармоқларимиз",priv:"Махфийлик сиёсати",del:"Маълумотларни ўчириш",copied:"Ҳавола нусхаланди ✅"},
+    lat:{lead:"O'zbekistondagi eng dolzarb yangiliklar, foydali va qiziqarli videolar 🔥",tab1:"Kanallar",tab2:"Reklama",
+      both:"Ikkala kanalga birdaniga qo'shilish",hint:"Bir bosishda — ikkala kanal ham sizda",
+      x_t:"Xo'jaobod City 24",x_tag:"Har kuni",x_d:"Eng dolzarb yangiliklar, foydali videolar, hajviya, sog'liq uchun maslahatlar, jonli musiqa va premyeralar 😉",
+      p_tag:"Shou-biznes",p_d:"Yulduzlar hayoti, shou-biznes yangiliklari, yangi qo'shiqlar, kliplar va premyeralar 🎵",
+      join:"Qo'shilish",share:"Ulashish",ad_t:"Reklama joylashtirish",ad_1:"📍 Xo'jaobod City 24 va PaparazziUZ kanallarida",
+      ad_2:"📸 Instagram 238 ming • ▶️ YouTube 575 ming",ad_3:"🎬 Reklama video va postlarni o'zimiz tayyorlaymiz",ad_b:"Bog'lanish",
+      soc:"Ijtimoiy tarmoqlarimiz",priv:"Maxfiylik siyosati",del:"Ma'lumotlarni o'chirish",copied:"Havola nusxalandi ✅"}
+  };
   var ICON={
     instagram:'<svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zm0 4.9a4.9 4.9 0 1 0 0 9.8 4.9 4.9 0 0 0 0-9.8zm0 8.1a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.1-9.4a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z"/></svg>',
     youtube:'<svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>',
@@ -99,6 +147,25 @@
     telegram:'<svg viewBox="0 0 24 24"><path d="M9.8 15.3 9.4 20c.6 0 .9-.3 1.2-.6l2.9-2.7 6 4.4c1.1.6 1.9.3 2.2-1L24 3.6c.4-1.6-.6-2.3-1.6-1.9L1 10.1c-1.5.6-1.5 1.5-.3 1.9l5.5 1.7L19 5.6c.6-.4 1.1-.2.7.2z"/></svg>',
     facebook:'<svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>'
   };
+  var lang="cyr"; try{lang=localStorage.getItem("papa_lang")||"cyr"}catch(e){}
+  function apply(l){
+    lang=T[l]?l:"cyr";
+    document.documentElement.lang=lang==="lat"?"uz-Latn":"uz-Cyrl";
+    document.querySelectorAll("[data-t]").forEach(function(e){e.textContent=T[lang][e.getAttribute("data-t")]||""});
+    document.querySelectorAll(".lang button").forEach(function(b){b.classList.toggle("on",b.dataset.l===lang)});
+    try{localStorage.setItem("papa_lang",lang)}catch(e){}
+  }
+  document.querySelectorAll(".lang button").forEach(function(b){b.onclick=function(){apply(b.dataset.l)}});
+  document.querySelectorAll(".tabs button").forEach(function(b){b.onclick=function(){
+    document.querySelectorAll(".tabs button").forEach(function(x){x.classList.toggle("on",x===b)});
+    document.getElementById("ch").hidden=b.dataset.tab!=="ch";document.getElementById("ad").hidden=b.dataset.tab!=="ad";
+  }});
+  document.querySelectorAll("[data-share]").forEach(function(b){b.onclick=function(){
+    var u=document.getElementById(b.dataset.share).href;
+    if(navigator.share){navigator.share({url:u}).catch(function(){});}
+    else if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){b.lastChild.textContent=T[lang].copied})}
+  }});
+  apply(lang);
   var safe=function(u){return typeof u==="string"&&/^https:\/\//.test(u)};
   var s=(new URLSearchParams(location.search).get("s")||"").replace(/[^a-z0-9_-]/gi,"").slice(0,64);
   fetch("links.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():{}}).then(function(L){
@@ -107,12 +174,12 @@
       var u=x[k]||d[k], a=document.getElementById(k);
       if(safe(u)&&/^https:\/\/t\.me\//.test(u)){a.href=u;a.hidden=false;if(k==="both")document.getElementById("bothHint").hidden=false;}
     });
-    if(safe(L.ads)){var ad=document.getElementById("ads");ad.href=L.ads;ad.hidden=false;}
+    if(safe(L.ads))document.getElementById("ads").href=L.ads;
     var nav=document.getElementById("social");
     (L.social||[]).forEach(function(it){
       if(!safe(it.url)||!ICON[it.type])return;
       var a=document.createElement("a");a.href=it.url;a.rel="noopener";
-      a.innerHTML=ICON[it.type];a.appendChild(document.createTextNode(it.label||it.type));nav.appendChild(a);
+      a.innerHTML="<i>"+ICON[it.type]+"</i>";a.appendChild(document.createTextNode(it.label||it.type));nav.appendChild(a);
     });
   }).catch(function(){});
 })();
