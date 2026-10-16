@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="uz-Cyrl">
+<html lang="uz-Latn">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>PAPA — Телеграм каналларимиз</title>
-<meta name="description" content="Ўзбекистондаги энг долзарб янгиликлар, фойдали ва қизиқарли видеолар — Телеграм каналларимизда.">
+<title>PAPA — Telegram kanallarimiz</title>
+<meta name="description" content="O'zbekistondagi eng dolzarb yangiliklar, foydali va qiziqarli videolar — Telegram kanallarimizda.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="PAPA — энг долзарб ва фойдали каналлар">
-<meta property="og:description" content="Ўзбекистондаги энг долзарб янгиликлар, фойдали ва қизиқарли видеолар 🔥">
+<meta property="og:title" content="PAPA — eng dolzarb va foydali kanallar">
+<meta property="og:description" content="O'zbekistondagi eng dolzarb yangiliklar, foydali va qiziqarli videolar 🔥">
 <meta property="og:image" content="https://ozodjamol-eng.github.io/papa-site/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -34,7 +34,7 @@
   .lang{position:absolute;right:14px;top:14px;display:flex;z-index:2;padding:3px;border-radius:99px;
         background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
         -webkit-backdrop-filter:blur(14px) saturate(160%);backdrop-filter:blur(14px) saturate(160%)}
-  .lang button{border:0;background:transparent;color:#fff;font-weight:700;font-size:13px;padding:6px 12px;border-radius:99px;cursor:pointer;transition:.2s}
+  .lang button{border:0;background:transparent;color:#fff;font-weight:700;font-size:13px;padding:6px 10px;border-radius:99px;cursor:pointer;transition:.2s}
   .lang button.on{background:rgba(255,255,255,.95);color:var(--brand);box-shadow:0 2px 8px rgba(120,30,0,.18)}
   .ava{position:relative;z-index:1;width:96px;height:96px;border-radius:50%;object-fit:cover;display:block;margin:26px auto 12px;
        border:3px solid rgba(255,255,255,.9);box-shadow:0 10px 30px rgba(120,30,0,.30),0 0 0 7px rgba(255,255,255,.14);background:#fff}
@@ -112,7 +112,7 @@
 <body>
 <section class="hero">
   <button class="theme" id="theme" aria-label="Тема">🌙</button>
-  <div class="lang"><button data-l="cyr" class="on">Ўзб</button><button data-l="ru">Рус</button></div>
+  <div class="lang"><button data-l="lat" class="on">O'zb</button><button data-l="cyr">Ўзб</button><button data-l="ru">Рус</button></div>
   <img class="ava" src="avatar.jpg" onerror="this.onerror=null;this.src='icon.png'" alt="PAPA">
   <h1>PAPA</h1>
   <p data-t="lead"></p>
@@ -127,7 +127,7 @@
 
     <section class="card">
       <div class="head">
-        <div class="who"><img class="cava" src="davra.jpg" onerror="this.outerHTML='<div class=cava>🎉</div>'" alt=""><h2>КАТТА ДАВРА</h2></div>
+        <div class="who"><img class="cava" src="davra.jpg" onerror="this.outerHTML='<div class=cava>🎉</div>'" alt=""><h2 data-t="k_t"></h2></div>
         <span class="pill" data-t="d_tag"></span>
       </div>
       <div class="desc" data-t="d_d"></div>
@@ -178,14 +178,21 @@
 <script>
 (function(){
   var T={
-    cyr:{d_tag:"Бутун Ўзбекистон",d_d:"Мусиқа, ҳажвия, фойдали ва қизиқарли видеолар, энг долзарб янгиликлар — бутун Ўзбекистон бир даврада 🎉",x_tag_local:"",lead:"Ўзбекистондаги энг долзарб янгиликлар, фойдали ва қизиқарли видеолар 🔥",tab1:"Каналлар",tab2:"Реклама",
+    lat:{k_t:"KATTA DAVRA",d_tag:"Butun O'zbekiston",d_d:"Musiqa, hajviya, foydali va qiziqarli videolar, eng dolzarb yangiliklar — butun O'zbekiston bir davrada 🎉",lead:"O'zbekistondagi eng dolzarb yangiliklar, foydali va qiziqarli videolar 🔥",tab1:"Kanallar",tab2:"Reklama",
+      both:"Uchala kanalga birdaniga qo'shilish",hint:"Bir bosishda — uchala kanal ham sizda",
+      x_t:"Xo'jaobod City 24",x_tag:"Mahalliy",x_d:"Eng dolzarb yangiliklar, foydali videolar, hajviya, sog'liq uchun maslahatlar, jonli musiqa va premyeralar 😉",
+      p_tag:"Shou-biznes",p_d:"Yulduzlar hayoti, shou-biznes yangiliklari, yangi qo'shiqlar, kliplar va premyeralar 🎵",
+      join:"Qo'shilish",share:"Ulashish",ad_t:"Reklama joylashtirish",ad_1:"📍 KATTA DAVRA, PaparazziUZ va Xo'jaobod City 24 da",
+      ad_2:"📸 Instagram 238 ming • ▶️ YouTube 575 ming",ad_3:"🎬 Reklama video va postlarni o'zimiz tayyorlaymiz",ad_b:"Bog'lanish",
+      soc:"Ijtimoiy tarmoqlarimiz",priv:"Maxfiylik siyosati",del:"Ma'lumotlarni o'chirish",copied:"Havola nusxalandi ✅"},
+    cyr:{k_t:"КАТТА ДАВРА",d_tag:"Бутун Ўзбекистон",d_d:"Мусиқа, ҳажвия, фойдали ва қизиқарли видеолар, энг долзарб янгиликлар — бутун Ўзбекистон бир даврада 🎉",x_tag_local:"",lead:"Ўзбекистондаги энг долзарб янгиликлар, фойдали ва қизиқарли видеолар 🔥",tab1:"Каналлар",tab2:"Реклама",
       both:"Учала каналга бирданига қўшилиш",hint:"Бир босишда — учала канал ҳам сизда",
       x_t:"Хўжаобод Сити 24",x_tag:"Маҳаллий",x_d:"Энг долзарб янгиликлар, фойдали видеолар, ҳажвия, соғлиқ учун маслаҳатлар, жонли мусиқа ва премьералар 😉",
       p_tag:"Шоу-бизнес",p_d:"Юлдузлар ҳаёти, шоу-бизнес янгиликлари, янги қўшиқлар, клиплар ва премьералар 🎵",
       join:"Қўшилиш",share:"Улашиш",ad_t:"Реклама жойлаштириш",ad_1:"📍 КАТТА ДАВРА, PaparazziUZ ва Хўжаобод Сити 24 да",
       ad_2:"📸 Instagram 238 минг • ▶️ YouTube 575 минг",ad_3:"🎬 Реклама видео ва постларни ўзимиз тайёрлаймиз",ad_b:"Боғланиш",
       soc:"Ижтимоий тармоқларимиз",priv:"Махфийлик сиёсати",del:"Маълумотларни ўчириш",copied:"Ҳавола нусхаланди ✅"},
-    ru:{d_tag:"Весь Узбекистан",d_d:"Музыка, юмор, полезные и интересные видео, самые актуальные новости — весь Узбекистан в одном кругу 🎉",x_tag_local:"",lead:"Самые актуальные новости Узбекистана, полезные и интересные видео 🔥",tab1:"Каналы",tab2:"Реклама",
+    ru:{k_t:"КАТТА ДАВРА",d_tag:"Весь Узбекистан",d_d:"Музыка, юмор, полезные и интересные видео, самые актуальные новости — весь Узбекистан в одном кругу 🎉",x_tag_local:"",lead:"Самые актуальные новости Узбекистана, полезные и интересные видео 🔥",tab1:"Каналы",tab2:"Реклама",
       both:"Подписаться сразу на все три канала",hint:"Одно нажатие — и все три канала у вас",
       x_t:"Ходжаабад Сити 24",x_tag:"Местный",x_d:"Самые актуальные новости, полезные видео, юмор, советы для здоровья, живая музыка и премьеры 😉",
       p_tag:"Шоу-бизнес",p_d:"Жизнь звёзд, новости шоу-бизнеса, новые песни, клипы и премьеры 🎵",
@@ -200,10 +207,10 @@
     telegram:'<svg viewBox="0 0 24 24"><path d="M9.8 15.3 9.4 20c.6 0 .9-.3 1.2-.6l2.9-2.7 6 4.4c1.1.6 1.9.3 2.2-1L24 3.6c.4-1.6-.6-2.3-1.6-1.9L1 10.1c-1.5.6-1.5 1.5-.3 1.9l5.5 1.7L19 5.6c.6-.4 1.1-.2.7.2z"/></svg>',
     facebook:'<svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>'
   };
-  var lang="cyr"; try{lang=localStorage.getItem("papa_lang")||"cyr"}catch(e){}
+  var lang=((navigator.language||"").slice(0,2)==="ru")?"ru":"lat"; try{lang=localStorage.getItem("papa_lang")||lang}catch(e){}
   function apply(l){
-    lang=T[l]?l:"cyr";
-    document.documentElement.lang=lang==="ru"?"ru":"uz-Cyrl";
+    lang=T[l]?l:"lat";
+    document.documentElement.lang=lang==="ru"?"ru":(lang==="cyr"?"uz-Cyrl":"uz-Latn");
     document.querySelectorAll("[data-t]").forEach(function(e){e.textContent=T[lang][e.getAttribute("data-t")]||""});
     document.querySelectorAll(".lang button").forEach(function(b){b.classList.toggle("on",b.dataset.l===lang)});
     try{localStorage.setItem("papa_lang",lang)}catch(e){}
