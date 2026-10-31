@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>OZOD JAMOL Дизайн</title>
+<meta name="theme-color" content="#1b1712">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+@font-face{font-family:Inter;font-weight:700 800;src:url(../fonts/InterDisplay-ExtraBold.otf)}
+@font-face{font-family:Inter;font-weight:900;src:url(../fonts/InterDisplay-Black.otf)}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{background:#1b1712;color:#fff}
+body{font:800 16px/1.3 Inter,-apple-system,Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:calc(118px + env(safe-area-inset-bottom))}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+#bg,#bg2{position:fixed;inset:0;background:#1b1712 center/cover no-repeat;transition:opacity .6s ease}
+#bg2{opacity:0}
+.shade{position:fixed;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.30),rgba(0,0,0,.12) 35%,rgba(0,0,0,.42))}
+.w{position:relative;max-width:560px;margin:0 auto;padding:0 16px;display:flex;flex-direction:column;gap:14px}
+.top{text-align:center;text-shadow:0 2px 16px rgba(0,0,0,.4);padding:calc(30px + env(safe-area-inset-top)) 0 18px}
+.top .a{font-weight:800;font-size:14px;letter-spacing:.2em;text-transform:uppercase;opacity:.92}
+.top .b{font-weight:900;font-size:64px;letter-spacing:-.03em;line-height:1;margin-top:8px}
+.top .c{font-weight:800;font-size:20px;margin-top:8px}
+.tile{border-radius:24px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.32);
+ backdrop-filter:blur(22px) saturate(170%) brightness(.9);-webkit-backdrop-filter:blur(22px) saturate(170%) brightness(.9);
+ box-shadow:0 10px 30px rgba(0,0,0,.16),inset 0 1px 0 rgba(255,255,255,.35);padding:18px 20px}
+.hd{display:flex;align-items:center;gap:8px;font-weight:800;font-size:13px;letter-spacing:.12em;color:rgba(255,255,255,.78);text-transform:uppercase}
+.hd svg{width:18px;height:18px;flex:none}
+.pills{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.pill{border-radius:999px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:12px 4px;font-weight:800;font-size:15px}
+.pill.on{background:#fff;color:#14110d;border-color:#fff}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.val{font-weight:900;letter-spacing:-.04em;line-height:1}
+.area{margin-top:10px}
+.area .n{display:flex;align-items:baseline;gap:6px}
+.area input{width:1.9ch;background:none;border:0;color:#fff;font:900 64px/1 Inter,sans-serif;letter-spacing:-.04em;outline:none;text-shadow:0 2px 14px rgba(0,0,0,.2)}
+.area .u{font-weight:900;font-size:24px}
+.pm{display:flex;gap:10px}.pm button{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);font-weight:900;font-size:28px;line-height:1}
+.pm button:active{background:#fff;color:#14110d}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:4px;margin-top:18px;outline:none;
+ background:linear-gradient(90deg,#fff var(--p,20%),rgba(255,255,255,.25) var(--p,20%))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:4px solid rgba(0,0,0,.18)}
+input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#fff;border:4px solid rgba(0,0,0,.18)}
+.sub{font-weight:800;font-size:15px;color:rgba(255,255,255,.88);margin-top:8px}
+.err{color:#ffb1b1;font-size:13px;font-weight:800;margin-top:8px;min-height:1px}
+.cap{padding:12px 20px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.st{border-radius:24px;overflow:hidden;position:relative;aspect-ratio:1/1.12;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.32);box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.st img{width:100%;height:100%;object-fit:cover;display:block}
+.st span{position:absolute;left:8px;right:8px;bottom:8px;border-radius:999px;padding:9px 8px;font-weight:900;font-size:13px;letter-spacing:.06em;text-align:center;
+ background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.st.on{border:3px solid #fff}
+.st.on span{background:#fff;color:#14110d}
+.li{display:flex;align-items:center;gap:14px;padding:12px 0;border-top:1px solid rgba(255,255,255,.18)}
+.li:first-of-type{border-top:0}
+.li .ic{width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35)}
+.li .ic svg{width:20px;height:20px}
+.li b{display:block;font-weight:900;font-size:17px}
+.li small{display:block;font-weight:800;font-size:13px;color:rgba(255,255,255,.78);margin-top:2px}
+.list{margin-top:6px}
+.note{font-weight:800;font-size:12px;color:rgba(255,255,255,.8);line-height:1.5;text-align:center;text-shadow:0 1px 8px rgba(0,0,0,.4);padding:4px 8px 8px}
+.bar{position:fixed;left:0;right:0;bottom:0;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+.bar .in{max-width:560px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;border-radius:28px;padding:12px 12px 12px 22px;
+ background:rgba(30,26,20,.55);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(26px) saturate(170%);-webkit-backdrop-filter:blur(26px) saturate(170%)}
+.bar small{display:block;font-weight:800;font-size:11px;letter-spacing:.16em;opacity:.8}
+.bar b{font-weight:900;font-size:30px;letter-spacing:-.03em}
+.go{background:#fff;color:#14110d;border-radius:999px;padding:16px 22px;font-weight:900;font-size:15px}
+.go:active{transform:scale(.97)}
+</style>
+</head>
+<body>
+<div id="bg"></div><div id="bg2"></div><div class="shade"></div>
+<div class="w">
+  <div class="top"><div class="a">OZOD JAMOL · ДИЗАЙН</div><div class="b">3D дизайн</div><div class="c">Таъмирдан олдин кўринг · 1 м² — $3</div></div>
+
+  <div class="tile">
+    <div class="hd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg>Объект</div>
+    <div class="pills" id="obj"><button class="pill on" data-v="kv">Квартира</button><button class="pill" data-v="hovli">Ҳовли уй</button><button class="pill" data-v="ofis">Офис</button></div>
+  </div>
+
+  <div class="tile">
+    <div class="hd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h4M3 15h4M9 3v4M15 3v4"/></svg>Майдон</div>
+    <div class="row area"><div class="n"><input id="m2" type="number" inputmode="numeric" min="5" max="1000" value="60"><span class="u">м²</span></div>
+      <div class="pm"><button data-d="-5" aria-label="−5">−</button><button data-d="5" aria-label="+5">+</button></div></div>
+    <input id="rng" type="range" min="10" max="300" step="1" value="60">
+    <div class="err" id="err"></div>
+  </div>
+
+  <div class="tile cap"><div class="hd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18c1 0 1.5-.8 1.5-1.6 0-1.2-1-1.4-1-2.4 0-.9.7-1.5 1.6-1.5H17a4 4 0 0 0 4-4c0-4.7-4-8.5-9-8.5z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10.5" cy="7" r="1"/><circle cx="15" cy="7.5" r="1"/></svg><span id="styhint">Услуб · квартира</span></div></div>
+  <div class="grid" id="sty">
+    <button class="st on" data-v="minimal"><img src="../img/minimal.jpg" alt=""><span>МИНИМАЛИЗМ</span></button>
+    <button class="st" data-v="haytek"><img src="../img/haytek.jpg" alt="" loading="lazy"><span>ХАЙ-ТЕК</span></button>
+    <button class="st" data-v="klassika"><img src="../img/klassika.jpg" alt="" loading="lazy"><span>КЛАССИКА</span></button>
+    <button class="st" data-v="sharq"><img src="../img/sharq.jpg" alt="" loading="lazy"><span>ШАРҚОНА</span></button>
+  </div>
+
+  <div class="tile">
+    <div class="hd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7l-8 5-8-5 8-4z"/><path d="M4 7v10l8 4 8-4V7"/><path d="M12 12v9"/></svg>Сиз оласиз</div>
+    <div class="list">
+      <div class="li"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg></div><div><b>3D визуал</b><small>ҳар бир хона, бир неча ракурс</small></div></div>
+      <div class="li"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20L20 4"/><path d="M4 20h7M4 20v-7"/><path d="M14 4h6v6"/></svg></div><div><b>Чизмалар</b><small>план, деворлар, ўлчамлар</small></div></div>
+      <div class="li"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><div><b>Электр режаси</b><small>розетка, калит, чироқ — баландлиги билан</small></div></div>
+      <div class="li"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><circle cx="8" cy="8" r="4"/><circle cx="16" cy="9" r="4"/><circle cx="12" cy="16" r="4"/></svg></div><div><b>Ранглар ва материаллар</b><small>палитра, пол, девор, шифт</small></div></div>
+    </div>
+  </div>
+
+  <div class="tile">
+    <div class="hd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Қандай ишлайди</div>
+    <div class="list">
+      <div class="li"><div class="ic"><b style="font-size:16px">1</b></div><div><b>Ариза қолдирасиз</b></div></div>
+      <div class="li"><div class="ic"><b style="font-size:16px">2</b></div><div><b>Уста келиб, бепул ўлчайди</b></div></div>
+      <div class="li"><div class="ic"><b style="font-size:16px">3</b></div><div><b>3D лойиҳани оласиз</b></div></div>
+    </div>
+  </div>
+  <p class="note">Расмлар — услуб намунаси. Якуний нарх ўлчовдан кейин аниқланади.<br>Биз дизайн учун жавоб берамиз; таъмир — уста билан келишув асосида.</p>
+</div>
+
+<div class="bar"><div class="in"><div><small>3D ДИЗАЙН</small><b id="price">$180</b></div><button class="go" id="go">Ариза қолдириш</button></div></div>
+
+<script>
+const PRICE=3, BOT="ozodjamoldizaynbot";
+const tg=window.Telegram&&Telegram.WebApp;
+if(tg){try{tg.ready();tg.expand();tg.setHeaderColor&&tg.setHeaderColor("#1b1712");tg.setBackgroundColor&&tg.setBackgroundColor("#1b1712")}catch(e){}}
+const S={obj:"kv",style:"minimal",m2:60};const $=id=>document.getElementById(id);
+function haptic(){try{tg&&tg.HapticFeedback&&tg.HapticFeedback.selectionChanged()}catch(e){}}
+let front="bg";
+function setBg(){const url=`../img/bg_${S.obj}_${S.style}.jpg`,back=front==="bg"?"bg2":"bg";
+  const im=new Image();im.onload=()=>{$(back).style.backgroundImage=`url(${url})`;$(back).style.opacity=1;$(front).style.opacity=0;front=back};im.src=url}
+function setM2(v,from){v=Math.round(Number(v));const bad=!isFinite(v)||v<5||v>1000;
+  $("err").textContent=bad?"Майдон 5 дан 1000 м² гача бўлсин":"";
+  if(!bad){S.m2=v;$("m2").style.width=(String(v).length*0.72+0.12)+"em";if(from!=="rng")$("rng").value=Math.min(300,Math.max(10,v));if(from!=="in")$("m2").value=v;
+    $("rng").style.setProperty("--p",((Math.min(300,Math.max(10,v))-10)/290*100)+"%")}
+  $("price").textContent=bad?"—":"$"+(S.m2*PRICE).toLocaleString("en-US");return !bad}
+const HINT={kv:"Услуб · квартира",hovli:"Услуб · ҳовли уй",ofis:"Услуб · офис, дўкон, кафе"};
+$("obj").addEventListener("click",e=>{const b=e.target.closest("button[data-v]");if(!b)return;
+  $("obj").querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));S.obj=b.dataset.v;haptic();
+  const pre=S.obj==="kv"?"":S.obj+"_";document.querySelectorAll("#sty .st").forEach(x=>{x.querySelector("img").src="../img/"+pre+x.dataset.v+".jpg"});$("styhint").textContent=HINT[S.obj];setBg()});
+$("sty").addEventListener("click",e=>{const b=e.target.closest(".st");if(!b)return;
+  $("sty").querySelectorAll(".st").forEach(x=>x.classList.toggle("on",x===b));S.style=b.dataset.v;haptic();setBg()});
+$("m2").addEventListener("input",e=>setM2(e.target.value,"in"));
+$("rng").addEventListener("input",e=>setM2(e.target.value,"rng"));
+document.querySelectorAll(".pm button").forEach(b=>b.addEventListener("click",()=>{setM2(S.m2+Number(b.dataset.d));haptic()}));
+$("go").addEventListener("click",()=>{
+  if(!setM2($("m2").value,"in")){$("m2").focus();return}
+  const d={v:1,kind:"dizayn",obj:S.obj,m2:S.m2,style:S.style,price:S.m2*PRICE};
+  if(tg&&typeof tg.sendData==="function"&&tg.initDataUnsafe&&tg.initDataUnsafe.user===undefined&&tg.platform!=="unknown"){try{tg.sendData(JSON.stringify(d));return}catch(e){}}
+  const url="https://t.me/"+BOT+"?start=d_"+S.obj+"_"+S.m2+"_"+S.style;
+  if(tg&&tg.openTelegramLink&&tg.platform!=="unknown"){tg.openTelegramLink(url);tg.close&&tg.close()}else{location.href=url}
+});
+$("bg").style.backgroundImage="url(../img/bg_kv_minimal.jpg)";
+setM2(60);
+</script>
+</body>
+</html>
