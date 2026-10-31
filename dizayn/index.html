@@ -86,6 +86,7 @@ input[type=range]{width:100%;margin-top:16px;accent-color:var(--red);height:28px
   </div>
 
   <h2>3. <span>Услуб</span></h2>
+  <div class="sub" id="styhint" style="margin:-4px 0 10px">Квартира учун намуналар</div>
   <div class="styles" id="sty">
     <button class="st on" data-v="minimal"><img src="img/minimal.jpg" alt="" loading="lazy"><span>МИНИМАЛИЗМ</span></button>
     <button class="st" data-v="haytek"><img src="img/haytek.jpg" alt="" loading="lazy"><span>ХАЙ-ТЕК</span></button>
@@ -107,7 +108,7 @@ input[type=range]{width:100%;margin-top:16px;accent-color:var(--red);height:28px
     <div><b>2</b>Уста келиб, бепул ўлчаб кетади</div>
     <div><b>3</b>3D лойиҳани оласиз — кейин таъмир</div>
   </div>
-  <p class="note">Нарх: 1 м² — $3. Якуний нарх ўлчовдан кейин аниқланади. Биз дизайн учун жавоб берамиз; таъмир ишлари — уста билан ўзаро келишув асосида.</p>
+  <p class="note">Расмлар — услуб намунаси. Нарх: 1 м² — $3. Якуний нарх ўлчовдан кейин аниқланади. Биз дизайн учун жавоб берамиз; таъмир ишлари — уста билан ўзаро келишув асосида.</p>
 </div>
 
 <div class="ok wrap" id="ok"><img src="img/logo.jpg" alt="" style="width:96px;border-radius:50%;border:3px solid #fff"><h3>Раҳмат!</h3><p class="sub">Ботга қайтинг — аризани якунлаймиз.</p></div>
@@ -132,6 +133,11 @@ function setM2(v,from){v=Math.round(Number(v));const bad=!isFinite(v)||v<5||v>10
 function pick(box,key){box.addEventListener("click",e=>{const b=e.target.closest("button[data-v]");if(!b)return;
   box.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));S[key]=b.dataset.v;haptic()})}
 pick($("obj"),"obj");pick($("sty"),"style");
+const HINT={kv:"Квартира учун намуналар",hovli:"Ҳовли уй учун намуналар",ofis:"Офис, дўкон, кафе учун намуналар"};
+function swapImgs(){const pre=S.obj==="kv"?"":S.obj+"_";
+  document.querySelectorAll("#sty .st").forEach(b=>{const im=b.querySelector("img");im.src="img/"+pre+b.dataset.v+".jpg"});
+  $("styhint").textContent=HINT[S.obj]}
+$("obj").addEventListener("click",()=>setTimeout(swapImgs,0));
 $("m2").addEventListener("input",e=>setM2(e.target.value,"in"));
 $("rng").addEventListener("input",e=>{setM2(e.target.value,"rng")});
 document.querySelectorAll(".pm button").forEach(b=>b.addEventListener("click",()=>{setM2(S.m2+Number(b.dataset.d));haptic()}));
