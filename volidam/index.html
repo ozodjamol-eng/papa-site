@@ -228,6 +228,7 @@ function render(){
   });
   document.getElementById('inc').innerHTML=D.common.map(c=>`<div><div class="i">${c[0]}</div><div class="l">${c[1]}</div><div class="v">${c[2]}</div></div>`).join('');
   document.getElementById('phones').innerHTML=D.phones.map(p=>`<a href="tel:${p.tel}"><span><small>${p.label.toUpperCase()}</small><br><b>${p.show}</b></span><span>📞</span></a>`).join('')
+    +(D.manager?`<a href="https://t.me/${D.manager}" target="_blank"><span><small>УМРА МУТАХАССИСИ</small><br><b>Нодирбекка ёзиш</b></span><span>✍️</span></a>`:'')
     +(D.bot?`<a href="https://t.me/${D.bot}?start=site"><span><small>TELEGRAM</small><br><b>Бот орқали ариза</b></span><span>✈️</span></a>`:'');
   const soc=[];if(D.youtube)soc.push(`<a href="${D.youtube}" target="_blank">▶️ YouTube</a>`);if(D.instagram)soc.push(`<a href="${D.instagram}" target="_blank">📸 Instagram</a>`);if(D.telegram)soc.push(`<a href="${D.telegram}" target="_blank">✈️ Telegram канал</a>`);
   document.getElementById('soc').innerHTML=soc.join('');
@@ -240,7 +241,8 @@ function openSheet(id,s){
   sum();
   const msg=()=>encodeURIComponent(`Ассалому алайкум! Умра пакети: ${p.title}${s?', '+fmt(toDate(s)):''}, ${['4','3','2'][cur.room]} кишилик ($${p.prices[cur.room]}). Батафсил маълумот берсангиз.`);
   document.getElementById('sAct').innerHTML=(D.bot?`<a class="btn gold" id="botA" href="#">✈️ Telegram орқали ариза</a>`:'')
-    +D.phones.map(ph=>`<a class="btn ${D.bot?'wine':'gold'}" href="tel:${ph.tel}">📞 ${ph.label}: ${ph.show}</a>`).join('');
+    +D.phones.map(ph=>`<a class="btn ${D.bot?'wine':'gold'}" href="tel:${ph.tel}">📞 ${ph.label}: ${ph.show}</a>`).join('')
+    +(D.manager?`<a class="btn wine" href="https://t.me/${D.manager}" target="_blank">✍️ Нодирбекка ёзиш</a>`:'');
   if(D.bot){document.getElementById('botA').onclick=e=>{e.preventDefault();const st=('site_'+p.id+'_'+(s||'x').replace('.','')+'_'+['4','3','2'][cur.room]);const u=`https://t.me/${D.bot}?start=${st}`;if(tg&&tg.openTelegramLink)tg.openTelegramLink(u);else location.href=u}}
   document.getElementById('sheet').classList.add('on');
 }
